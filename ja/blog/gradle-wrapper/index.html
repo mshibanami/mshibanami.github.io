@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Manabu Nakazawa</title>
+    <meta content="Manabu Nakazawa" name="author" />
+    <meta content="website" property="og:type" />
+    <meta content="Manabu Nakazawa" property="og:title" />
+    <meta content="/assets/img/favicon-196.png" property="og:image" />
+    <meta content="/ja/blog/gradle-wrapper/index.html" property="og:url" />
+    <meta content="ja_JP" property="og:locale" />
+    <link href="/assets/img/favicon-196.png" rel="shortcut icon" type="image/png" />
+    <link href="/assets/img/favicon-196.png" rel="shortcut icon" sizes="196x196" />
+    <link href="/assets/img/favicon-196.png" rel="apple-touch-icon" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet" />
+    <link href="/assets/css/compiled/main.css" rel="stylesheet" />
+    <script defer="" src="/lib/jquery/jquery.min.js"></script>
+    <script defer="" src="/lib/foundation-sites/js/foundation.min.js"></script>
+    <script crossorigin="anonymous" defer="" integrity="sha384-G/XjSSGjG98ANkPn82CYar6ZFqo7iCeZwVZIbNWhAmvCF2l+9b5S21K4udM7TGNu" src="https://use.fontawesome.com/releases/v5.0.13/js/brands.js"></script>
+    <script crossorigin="anonymous" defer="" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+    <script defer="" src="/assets/js/app.js"></script>
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-46019833-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet" />
+    <script src="/lib/highlightjs/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x align-middle">
+          <div class="cell medium-auto medium-align-left">
+            <a href="/ja/">
+              <h1>
+                Manabu Nakazawa
+              </h1>
+            </a>
+          </div>
+          <div class="cell medium-auto">
+            <nav class="hover-underline-menu" data-menu-underline-from-center="">
+              <ul class="menu medium-align-right">
+                <li>
+                  <a href="/ja/">ホーム</a>
+                </li>
+                <li class="is-active">
+                  <a href="/ja/blog">ブログ</a>
+                </li>
+                <li>
+                  <a href="/ja/slides">スライド</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-y">
+        <div class="cell text-right">
+          <span><a href="/en/blog/gradle-wrapper/" target="_self">English</a></span>
+        </div>
+      </div>
+    </div><article class="blog-post grid-container">
+  <div class="grid-x grid-padding-y">
+    <div class="cell">
+      <header class="text-center">
+        <h1>
+          Gradle Wrapperを経由せずに実行する
+        </h1>
+        <span class="date">2016年2月7日</span>
+      </header><p>Gradleでは基本的にGradleラッパーを介してプログラムが実行される。
+しかしこのラッパーはメモリを20MBほど消費し、CPUにも多少負荷をかけている。
+その為、直接プログラムを実行したい。</p>
+
+<p><code>build.gradle</code>に下記を書く。</p>
+
+<pre><code class="language-groovy">apply plugin:'application'
+mainClassName = "org.gradle.sample.Main"
+</code></pre>
+
+<p><code>org.gradle.sample.Main</code>には、mainメソッドが存在するクラスを指定する。</p>
+
+<p>そして次のコマンドを実行する。</p>
+<pre><code>% gradle clean installDist
+</code></pre>
+
+<p>すると<code>build/install/&lt;プログラム名&gt;/bin/&lt;プログラム名&gt;</code> というファイルが作られるのでそれを実行する。</p>
+
+<p>ここで次のような例外が出た。</p>
+
+<pre><code>Exception in thread "main" java.lang.ExceptionInInitializerError
+Caused by: java.lang.NullPointerException
+</code></pre>
+
+<p>今までrunなどのGradleのタスクから実行していた時には出なかった例外だ。</p>
+
+<p>例外が発生しているのは以下のコード。</p>
+
+<pre><code class="language-java">URL dirUrl = WordReader.class.getClassLoader().getResource("dir");
+File[] langFiles = new File(dirUrl.getPath()).listFiles();
+
+for (File f : langFiles) {
+  System.out.println(f.getName());
+}
+</code></pre>
+
+<p>例外はfor文の書き出しのところで起きている。
+つまりlangPathsがnullとなっている。</p>
+
+<p>この時、<code>dirUrl</code>は下記のようになっていた。</p>
+
+<pre><code>&lt;プロジェクトルート&gt;/build/install/&lt;プログラム名&gt;/lib/&lt;プログラム名&gt;.jar!/dir
+</code></pre>
+
+<p>つまり、jarファイル内のdirフォルダを読み込むのに失敗している。</p>
+
+<p><code>gradle run</code>した場合は下記のようになっていた。</p>
+
+<pre><code>&lt;プロジェクトルート&gt;/build/resources/main/dir
+</code></pre>
+
+<p>jarファイル内のファイルを読み込むのは簡単だが、フォルダを読み込むのは難しい。</p>
+
+<p><a href="http://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file">http://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file</a></p>
+
+<p>これをなるべくコードは汚さず、runでもjarからでも動くようにしたい。</p>
+
+<p>jarの外に、jar内にあるリソースファイルと同じもののシンボリックリンクを作り、それを読み込むことにした。
+冗長だし、libフォルダの中に作ることになるので気持ち悪いが、一番コードを汚さず手軽な方法だと思う。</p>
+
+<p>まず、</p>
+
+<pre><code class="language-java">URL dirUrl = WordReader.class.getClassLoader().getResource("dir");
+</code></pre>
+
+<p>としていたところを、</p>
+
+<pre><code class="language-java">URL dirUrl = WordReader.class.getClassLoader().getResource("./dir");
+</code></pre>
+
+<p>とする。これで、jarからだと、</p>
+
+<pre><code>&lt;プロジェクトルート&gt;/build/install/&lt;プログラム名&gt;/lib/dir
+</code></pre>
+
+<p>を読み込もうとし、runからだと前述と変わらないパスを読み込もうとする。</p>
+
+<p>そして以下のコマンドを実行する。</p>
+
+<pre><code class="language-sh">% ./gradlew clean installDist
+% ln -s `pwd`/build/resources/main/* build/install/プログラム名/lib/
+</code></pre>
+
+<p>installDistを実行した時には build/resourcesという、ソースにあるリソースのコピーが作成される。
+その中にある全てのシンボリックリンクをlibフォルダ内に作っている。</p>
+
+<p>あとは前述の、生成された起動スクリプトを実行すれば動くはず。</p>
+
+<h2 id="まとめ">まとめ</h2>
+<p>メモリをケチってやることでもない。</p>
+
+    </div>
+  </div>
+</article><footer class="footer">
+      <div class="grid-container">
+        <div class="grid-x align-middle">
+          <div class="cell text-center">
+            <ul class="sns-icons">
+              <li>
+                <a href="https://twitter.com/mshibanami" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://github.com/mshibanami" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/mshibanami" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="cell text-center">
+            <span class="copyright">© 2019 Manabu Nakazawa</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

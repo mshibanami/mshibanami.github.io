@@ -1,0 +1,55 @@
+.header {
+  border-bottom: 1px solid #e7e7e7;
+  background-color: #f8f8f8;
+}
+.header h1 {
+  margin-top: 32px;
+  margin-right: 0;
+  margin-bottom: 20px;
+  margin-left: 0;
+  padding-bottom: 0px;
+  font-size: 1.5rem;
+  color: #666;
+  display: inline-block;
+}
+@media only screen and (min-width: 640px) {
+  .header h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+.hover-underline-menu {
+  width: 100%;
+}
+.hover-underline-menu .menu li a {
+  color: #999;
+  font-size: 1.2rem;
+  padding: 16px 16px;
+}
+.hover-underline-menu .menu li a.underline-from-center {
+  position: relative;
+}
+.hover-underline-menu .menu li a.underline-from-center::after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 0.125rem);
+  border-bottom: 0.125rem solid #999;
+  left: 50%;
+  right: 50%;
+  transition: all 0.5s ease;
+}
+.hover-underline-menu .menu li a.underline-from-center:hover::after {
+  left: 0;
+  right: 0;
+  transition: all 0.5s ease;
+}
+.hover-underline-menu .menu li.is-active {
+  font-weight: bold;
+}
+.hover-underline-menu .menu li.is-active a {
+  background: none;
+  color: #333;
+}

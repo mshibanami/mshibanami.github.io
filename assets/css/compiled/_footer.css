@@ -1,0 +1,28 @@
+.footer {
+  background-color: #f4f4f6;
+  border-top: 1px solid #e7e7e7;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.footer a {
+  color: #666;
+}
+.footer a:hover {
+  color: #999;
+}
+
+.copyright {
+  color: #aaaaaa;
+}
+
+.sns-icons {
+  list-style-type: none;
+  font-size: 0;
+  margin: 0;
+}
+.sns-icons li {
+  font-size: 2rem;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section id="_dynamic_type_について" class="center"><h2>Dynamic Type について</h2><div class="imageblock noboder" style=""><img src="/assets/img/sick_rougan_smartphone.png" alt="sick rougan smartphone" height="800"></div>
+<div class="paragraph"><p>@mshibanami</p></div></section>
+<section id="_dynamic_type_とは"><h2>Dynamic Type とは？</h2><div class="ulist"><ul><li class="fragment"><p>システム全体で文字の大きさを切り替える為の仕組み</p></li><li class="fragment"><p><strong>サイズカテゴリ</strong> に応じて文字を拡大・縮小</p></li></ul></div>
+<div class="paragraph"><p>
+<img class="fragment fade-in" src="/assets/img/IMG_35DE5D0FE005-1.jpeg" height="700">
+<img class="fragment fade-in" src="/assets/img/2017-09-13 21.37.30.png" height="700">
+<img class="fragment fade-in" src="/assets/img/IMG_56C6FC8F173E-1.jpeg" height="700">
+</p></div>
+<aside class="notes"><div class="paragraph"><p>基本は7サイズ。この画面の「さらに大きな文字」スイッチをオンにすると、
+さらに大きい5サイズを選べるようになり、全12サイズから選択可能になる。</p></div></aside></section>
+<section id="_サイズカテゴリは細かく適用_できない"><h2>サイズカテゴリは細かく適用 <span class="red">できない</span></h2><div class="paragraph"><p>例えば…</p></div>
+<div class="ulist"><ul><li class="fragment"><p>アプリ単体に適用: <span class="red">おそらくできない (2017/11/25 現在)</span></p><div class="ulist"><ul><li><p><span class="gray">色々試したら UIWindow の traitCollection を override するとできてるような挙動となった。でも traitCollection は override してはいけないと Apple が言ってるのでやらないように！</span></p></li></ul></div></li><li class="fragment"><p>特定画面に適用: 条件を満たす一部画面でのみ可能 (後述)</p></li></ul></div></section>
+<section id="_dynamic_type_に対応しているアプリ"><h2>Dynamic Type に対応しているアプリ</h2><div class="paragraph"><p>
+<br>
+</p></div>
+<div class="ulist"><ul><li><p>Apple純正アプリのほぼ全て</p></li><li><p>Twitter</p></li><li><p>Facebook</p></li><li><p>LINE</p></li><li><p>など</p></li></ul></div></section>
+<section id="_なぜ今さら_dynamic_type"><h2>なぜ今さら Dynamic Type？</h2><aside class="notes"><div class="paragraph"><p>iOS 7 からすでにある。</p></div></aside>
+<div class="paragraph"><p>
+<p class="fragment fade-in">
+    iOS 11 で色々変わった為。
+</p>
+</p></div>
+<div class="ulist"><ul><li class="fragment"><p>カスタムフォントも Dynamic Type で使えるように</p></li><li class="fragment"><p>画像も Dynamic Type でスケールできるように</p></li><li class="fragment"><p>コントロールセンターから簡単に設定可能に</p></li><li class="fragment"><p>テキストスタイルの文字サイズの上限が無くなった</p></li><li class="fragment"><p>純正アプリの多くが Dynamic Type に対応</p></li><li class="fragment"><p>今年の WWDC で関連セッションが 2 つ (No.245, 812)</p></li></ul></div>
+<div class="paragraph"><p>
+<p class="fragment fade-in">
+    ↓<br>
+    これからアツくなる！
+</p>
+</p></div>
+<aside class="notes"><div class="ulist"><ul><li><p>今まで設定アプリから出ないと設定できなかった。
+より一層重要度の高い機能になったといえる。</p></li><li><p>Dynamic Type は iOS 7 からある機能。</p></li></ul></div></aside></section>
+<section id="_dynamic_typeは誰にとってどんな機能か"><h2>Dynamic Typeは誰にとってどんな機能か</h2><div class="paragraph"><p>
+<br>
+</p></div>
+<div class="ulist"><ul><li><p>ユーザー にとって</p></li><li><p>デザイナー にとって</p></li><li><p>エンジニア にとって</p></li><li><p>QA にとって</p></li></ul></div></section>
+<section id="_ユーザーにとっての_dynamic_type"><h2>ユーザーにとっての Dynamic Type</h2><div class="ulist"><ul><li class="fragment"><p>自分にとって見やすい文字サイズで表示できる</p></li><li class="fragment"><p>非対応アプリにイライラ</p></li><li class="fragment"><p>中途半端な対応にはもっとイライラ</p></li></ul></div>
+<div class="paragraph"><p>
+<img class="fragment fade-in" src="/assets/img/IMG_90FB46A2B68D-1.jpeg" height="500">
+<img class="fragment fade-in" src="/assets/img/IMG_322498D47518-1.jpeg" height="500">
+</p></div></section>
+<section id="_デザイナーにとっての_dynamic_type"><h2>デザイナーにとっての Dynamic Type</h2><div class="ulist"><ul><li class="fragment"><p>Dynamic Type の機能を使う旨を指示書に書く事になる</p></li><li class="fragment"><p>フォントサイズを細かく指定するケースが減る</p></li><li class="fragment"><p>各機能の利用例を把握し最適な指示を出す必要がある</p><div class="ulist"><ul><li><p>WWDC のセッション動画や純正アプリなどを参考にしよう</p></li></ul></div></li><li class="fragment"><p>サイズカテゴリが Accessibility○○ の時の挙動がどうあるべきかの理解が必要 (後述)</p><div class="ulist"><ul><li><p>Accessibility◯◯ の挙動を指示する場合、テスト項目が増える事も周知しておく</p></li></ul></div></li><li class="fragment"><p>デザインテストの確認項目が増える</p></li></ul></div></section>
+<section id="_エンジニアにとっての_dynamic_type"><h2>エンジニアにとっての Dynamic Type</h2><div class="ulist"><ul><li class="fragment"><p>フォントの定義用クラスを作っておく必要がなくなる</p><div class="ulist"><ul><li><p><span class="red">※ただし案件初期からの導入 &amp; テキストスタイルのみを使う場合の話</span></p></li><li><p>既存の非対応アプリを対応させる場合は、後述のカスタムフォントを使おう</p></li></ul></div></li><li class="fragment"><p>サイズカテゴリの違いで表示が崩れないようにするテクが必要</p></li><li class="fragment"><p>デザイン指示書で指定されていなければ使わない</p></li></ul></div>
+<aside class="notes"><div class="ulist"><ul><li><p>最初にコツコツ指定しておけば、
+あとあと対応することになってもガッツリ労力をかけなくて済む</p></li><li><p>結局、実案件では、「このフォントあと少し小さく」とか言われると思う。</p></li></ul></div></aside></section>
+<section id="_qa_にとっての_dynamic_type"><h2>QA にとっての Dynamic Type</h2><div class="ulist"><ul><li class="fragment"><p>微妙なフォントサイズ違いの見逃しが起こりづらい</p></li><li class="fragment"><p>テスト項目が増える</p></li><li class="fragment"><p>黙ってると全てのサイズカテゴリをテストするハメに！？</p><div class="ulist"><ul><li><p>今までのテスト項目が <strong>12 倍</strong> ( = サイズカテゴリの総数) に…</p></li></ul></div></li></ul></div></section>
+<section id="_どうすれば_dynamic_type_に対応できるか"><h2>どうすれば Dynamic Type に対応できるか？</h2><div class="paragraph"><p>
+<br>
+</p></div>
+<div class="paragraph"><p>UILabel 等テキスト表示ビューを対応させたい場合:</p></div>
+<div class="paragraph"><p>
+<br>
+<p class="fragment fade-in">
+    決められた<strong>テキストスタイル</strong>をビューに設定する
+</p>
+</p></div></section>
+<section id="_テキストスタイルとは"><h2>テキストスタイルとは？</h2><div class="paragraph"><p>Apple が予め決めた以下項目をまとめたフォント設定</p></div>
+<div class="ulist"><ul><li class="fragment"><p>フォント名</p></li><li class="fragment"><p>サイズカテゴリごとフォントサイズ</p><div class="ulist"><ul><li><p>それぞれのテキストスタイルは拡縮割合が違うので注意。（後述のカスタムフォント使用時に参考になる）</p></li></ul></div></li><li class="fragment"><p>[〜 iOS 10] フォントサイズの上限値 (後述)</p></li></ul></div></section>
+<section id="_apple_human_interface_guideline" data-background-image="/assets/img/skitched-20170918-212145.png" data-background-size="contain"></section>
+<section id="_テキストスタイルデモ" class="center"><h2>テキストスタイルデモ</h2><div class="imageblock noboder" style=""><img src="/assets/img/Pasted_Image_2017_11_26_3_47.png" alt="Pasted Image 2017 11 26 3 47" height="1100"></div></section>
+<section id="_テキストスタイルは使用が推奨されている"><h2>テキストスタイルは使用が推奨されている</h2><div class="imageblock" style=""><img src="/assets/img/Pasted_Image_2017_11_24_6_40.png" alt="Pasted Image 2017 11 24 6 40" height="850"></div>
+<div class="paragraph"><p>Human Interface Guidelines の Typography より</p></div></section>
+<section id="_サイズカテゴリは色んな方法で設定可能"><h2>サイズカテゴリは色んな方法で設定可能</h2><div class="ulist"><ul><li class="fragment"><p>設定アプリ → 一般 → アクセシビリティ → さらに大きな文字</p></li><li class="fragment"><p>Accessibility Inspector</p></li><li class="fragment"><p>[iOS11] コントロールセンター</p></li></ul></div>
+<div class="paragraph"><p>
+<img class="fragment fade-in" src="/assets/img/IMG_2924.jpg">
+<img class="fragment fade-in" src="/assets/img/IMG_2DEFED796460-1.jpg" height="500">
+</p></div>
+<aside class="notes"><div class="ulist"><ul><li><p>Accessibility Inspector</p><div class="ulist"><ul><li><p>Xcode に入っている。Macから操作可能になる</p></li><li><p>実機・シミュレーター両方で設定可能。</p></li><li><p>シミュレータには今のところコントロールセンターの設定画面自体ないので使えない。</p></li></ul></div></li></ul></div></aside></section>
+<section id="_実装方法" class="center"><h2>実装方法</h2></section>
+<section id="_interface_builder_上での指定方法"><h2>Interface Builder 上での指定方法</h2><div class="paragraph"><p>テキストを表示するビューに設定項目がある</p></div>
+<div class="paragraph"><p>
+<img class="fragment fade-in" src="/quiver-image-url/8C38A9A850A6B80D8FCA8D482319C0ED.jpg" height="300">
+<img class="fragment fade-in" src="/assets/img/skitched-20171120-191813.jpg" height="450">
+</p></div>
+<div class="ulist"><ul><li class="fragment"><p>Automatically Adjusts Font:</p><div class="ulist"><ul><li><p>ON: サイズ変更後、即座に反映</p></li><li><p>OFF: サイズ変更後、画面を再度表示し直すと反映</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>Automatically Adjusts Font:
+- 基本的にチェックしておいた方が良い。
+- レイアウトを自前でやってる時に必要かもしれない程度のもの</p></div></aside></section>
+<section id="_コードで指定する場合"><h2>コードで指定する場合</h2><pre class="highlight listingblock"><code class="swift language-swift">// Font
+label.font = UIFont.preferredFont(
+    forTextStyle: UIFontTextStyle.body)
+
+// Automatically Adjusts Font
+label.adjustsFontForContentSizeCategory = true</code></pre>
+<aside class="notes"><div class="paragraph"><p>チェックを外すケース: 特殊なレイアウトを採用しているなど、実際の適用は独自のタイミングで行いたい時など？</p></div></aside></section>
+<section id="_サイズカテゴリ一覧"><h2>サイズカテゴリ一覧</h2><div class="ulist"><ul><li><p>XSmall</p></li><li><p>Small</p></li><li><p>Medium</p></li><li><p>Large (iOS のデフォルト値)</p></li><li><p>XLarge</p></li><li><p>XXLarge</p></li><li><p>XXXLarge</p></li><li><p><span class="brown">AccessibilityMedium</span></p></li><li><p><span class="brown">AccessibilityLarge</span></p></li><li><p><span class="brown">AccessibilityXLarge</span></p></li><li><p><span class="brown">AccessibilityXXLarge</span></p></li><li><p><span class="brown">AccessibilityXXXLarge</span></p></li></ul></div></section>
+<section id="_現在のサイズカテゴリを取得する"><h2>現在のサイズカテゴリを取得する</h2><pre class="highlight listingblock"><code class="swift language-swift">UIApplication
+    .shared
+    .preferredContentSizeCategory</code></pre></section>
+<section id="_特定の画面にサイズカテゴリを設定する"><h2>特定の画面にサイズカテゴリを設定する</h2><pre class="highlight listingblock"><code class="swift language-swift">// childVC のサイズカテゴリを small にする
+let trait = UITraitCollection(preferredContentSizeCategory:
+        UIContentSizeCategory.small)
+
+childVC.parent
+    .setOverrideTraitCollection(
+        trait,
+        forChildViewController: childVC)
+
+// 値の呼び出し
+childVC
+    .traitCollection
+    .preferredContentSizeCategory</code></pre>
+<div class="paragraph"><p>欠点: 親 View Controller を持つ画面にしか適用できない</p></div></section>
+<section id="_アプリ単体でサイズカテゴリを設定する_危険"><h2>アプリ単体でサイズカテゴリを設定する (<span class="red">危険</span>)</h2><pre class="highlight listingblock"><code class="swift language-swift">class Window: UIWindow {
+    override var traitCollection: UITraitCollection {
+        let mixed = UITraitCollection(traitsFrom: [
+            super.traitCollection,
+            UITraitCollection(preferredContentSizeCategory: .large)
+            ])
+        return mixed
+    }
+}</code></pre>
+<div class="paragraph"><p><a href="https://developer.apple.com/documentation/uikit/uitraitenvironment/1623514-traitcollection">してはいけない事とされている</a> 黒魔術なのでやらないように！</p></div></section>
+<section id="_ios_11_カスタムフォントについて" class="center"><h2>[iOS 11] カスタムフォントについて</h2></section>
+<section id="_カスタムフォントとは"><h2>カスタムフォントとは？</h2><div class="paragraph"><p>好きなフォントで特定のテキストスタイルのように拡縮できる機能</p></div>
+<div class="ulist"><ul><li class="fragment"><p>iOS 11 から使用可能</p></li><li class="fragment"><p>UIFont で扱えるならどんなフォントでも適用可能</p></li><li class="fragment"><p>Interface Builder 上では設定できないので面倒</p></li><li class="fragment"><p>実際にどのように拡縮されるかは <a href="https://github.com/mshibanami/DynamicTypeShowcase">デモアプリ</a> で確認しよう</p></li><li class="fragment"><p>「これあればテキストスタイル要らなくない？」</p><div class="ulist"><ul><li><p>Apple「なるべくテキストスタイルを使ってください…」</p></li><li><p>エンジニア「テキストスタイルの方が実装も楽なんで…」</p></li></ul></div></li></ul></div></section>
+<section id="_カスタムフォント指定に必要な情報"><h2>カスタムフォント指定に必要な情報</h2><div class="ulist"><ul><li><p>フォント名とスタイル</p></li><li><p>サイズカテゴリが Large の時に適用したいフォントサイズ</p></li><li><p>拡大時のフォントサイズの上限値</p></li><li><p>同じように拡縮させたいテキストスタイル</p></li></ul></div>
+<div class="paragraph"><p>
+<p class="fragment fade-in">
+    デザイン指示書に指示を書く場合の例:<br>
+    <br>
+    [Body] Arial-Bold 18pt (Max: 24pt)
+</p>
+</p></div></section>
+<section id="_カスタムフォント_デモ" class="center"><h2>カスタムフォント デモ</h2><div class="imageblock noboder" style=""><img src="/assets/img/Pasted_Image_2017_11_26_4_22.png" alt="Pasted Image 2017 11 26 4 22" height="1100"></div></section>
+<section id="_ios_11_画像の拡大機能について" class="center"><h2>[iOS 11] 画像の拡大機能について</h2></section>
+<section id="_画像の拡大機能とは" class="center"><h2>画像の拡大機能とは？</h2><div class="paragraph"><p>サイズカテゴリが Accessibility◯◯ の時に画像を拡大できる機能</p></div>
+<div class="ulist"><ul><li class="fragment"><p>iOS 11 から使用可能</p></li><li class="fragment"><p>今後も XSmall 〜 XXXLarge には適用されなさそう</p></li><li class="fragment"><p>普通の画像を使うとボケる</p><div class="ulist"><ul><li><p>ベクター画像を使えばボケない</p><div class="ulist"><ul><li><p>iOS 11 では ベクター画像をリアルタイムレンダリンできるようになった 🎉</p></li><li><p><span class="red">なのでデザイナーさんは画像リソースを <code>@2x.png</code> 等ではなくベクター画像 (PDF) で出力を！</span></p></li></ul></div></li></ul></div></li></ul></div></section>
+<section id="_画像の拡大機能デモ" class="center"><h2>画像の拡大機能デモ</h2><div class="imageblock noboder" style=""><img src="/assets/img/Pasted_Image_2017_11_26_3_52.png" alt="Pasted Image 2017 11 26 3 52" height="1100"></div></section>
+<section id="_画像の拡大率一覧"><h2>画像の拡大率一覧</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">サイズカテゴリ</th><th class="tableblock halign-left valign-top">拡大率</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">AMedium</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">150 %</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">ALarge</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">180 %</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">AXLarge</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">220 %</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">AXXLarge</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">250 %</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">AXXXLarge</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">300 %</p></td></tr></table>
+<div class="paragraph"><p>iOS 12 以降はまた変わるかも？</p></div></section>
+<section id="_ぶっちゃけサイズカテゴリの変更を監視すれば何でもできる"><h2>ぶっちゃけ、サイズカテゴリの変更を監視すれば何でもできる</h2></section>
+<section id="_サイズカテゴリの変更監視方法"><h2>サイズカテゴリの変更監視方法</h2><pre class="highlight listingblock"><code class="swift language-swift">class MyViewController: UIViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        // 自分好みにテキストや画像を拡縮したりする処理をここに書く
+    }
+}</code></pre>
+<div class="paragraph"><p>
+<div class="fragment fade-in">
+    <p>
+        実装が大変なので、ここぞという時だけ使おう。 <br>
+        例えばこんなのを実装するときなど:
+    <p/>
+    <img src="/assets/img/xxxxfdfafd.jpg">
+</div>
+</p></div></section>
+<section id="_デザイナー指示書どう書けば良いの" class="center"><h2>デザイナー「指示書どう書けば良いの？」</h2></section>
+<section id="_デザイン指示書の書き方"><h2>デザイン指示書の書き方</h2><div class="ulist"><ul><li class="fragment"><p>今までのフォント指示をテキストスタイルに置き換える</p><div class="ulist"><ul><li><p>Sketch 等はスタイル名を出力できるので活用しよう</p></li></ul></div></li><li class="fragment"><p>カスタムフォントの指示は必要情報を漏らさず書く</p><div class="ulist"><ul><li><p>例: [Body] Arial-Bold 18pt (Max: 24pt)</p></li></ul></div></li><li class="fragment"><p>サイズカテゴリはデフォルトの Large とする</p></li><li class="fragment"><p>Accessibility サイズ時の特殊挙動がある場合はメモ書きする</p><div class="ulist"><ul><li><p>例: （横並びのテキストについて）「AX サイズ時は縦に並べる」</p></li></ul></div></li></ul></div></section>
+<section id="_sketch_の場合"><h2>Sketch の場合</h2><div class="imageblock" style=""><img src="/assets/img/skitched-20170914-001321.jpg" alt="skitched 20170914 001321" height="500"></div>
+<div class="ulist"><ul><li class="fragment"><p>出力 👍: sketch-measure, Sympli</p></li><li class="fragment"><p>出力 🤔: InVision</p></li><li class="fragment"><p><a href="https://developer.apple.com/design/resources/">Apple が配布している Sketch リソース</a>が便利</p><div class="ulist"><ul><li><p><a href="https://github.com/nilshoenson/shared-text-styles">Shared Text Styles</a> というプラグインで抽出可能</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>LargeTitle が Title0 になってたり</p></div>
+<div class="ulist"><ul><li><p>とは言え、 Sketch の現最新 (46.2) では 定義済みの Text Style
+を出力して別の Sketch ファイルに取り込む機能が無い。
+そこで Sketch のプラグインの
+<a href="https://github.com/nilshoenson/shared-text-styles">Shared Text Styles</a> で
+エクスポートし、自分のSketchファイルにインポートして使うのが良い。
+<a href="https://github.com/getflourish/Sketch-Style-Inventory" class="bare">https://github.com/getflourish/Sketch-Style-Inventory</a> というのもある。</p></li><li><p><code>iOS-11-Beta-Sketch.zip</code></p></li></ul></div></aside></section>
+<section id="_qa_デザイナーテストどうすれば良いの"><h2>QA &amp; デザイナー「テストどうすれば良いの？」</h2><div class="ulist"><ul><li class="fragment"><p>何も考えてないと確認項目数 × Dynamic Type 全 12 サイズに！？</p><div class="ulist"><ul><li><p>必ずテストするサイズの範囲と、どのサイズをテスト対象とするかを確認しよう！</p></li></ul></div></li><li class="fragment"><p>デフォルト + 境界値 をテストするとしてこれらが対象になる？:</p><div class="ulist"><ul><li><p>XSmall (最小)</p></li><li><p>デフォルト</p></li><li><p>XXXLarge (通常最大)</p></li><li><p>AccessibilityXXXLarge (全サイズ最大)</p></li></ul></div></li></ul></div></section>
+<section id="_対応は慎重に" class="center"><h2>対応は慎重に</h2><div class="ulist"><ul><li class="fragment"><p>サイズによってはレイアウトが崩れる</p></li><li class="fragment"><p>対応するサイズが増えればテスト工数も増える</p></li><li class="fragment"><p>OS バージョンによって挙動に差がある</p></li><li class="fragment"><p>お客さんの文字サイズ変更機能へのモチベーションが低いかも</p></li><li class="fragment"><p>Accessibility サイズの場合、特殊な動きをする</p></li></ul></div></section>
+<section id="_こんな流れが良いのでは_対応フェーズ分割編"><h2>こんな流れが良いのでは？ (対応フェーズ分割編)</h2><div class="olist arabic"><ol class="arabic"><li class="fragment"><p>Dynamic Type 対応の下ごしらえをしておく</p><div class="ulist"><ul><li><p><strong>デザイン指示</strong>: サイズカテゴリ を Large としたテキストスタイルでフォントを指示。</p></li><li><p><strong>実装</strong>: 指示書どおりに作成。
+ただしテキストスタイルの指示がある所は従来の固定フォントに置き換える。
+フォントは全て定数クラスで定義し参照する。</p></li></ul></div></li><li class="fragment"><p>お客さんから文字サイズの変更機能追加の要望が来る。</p></li><li class="fragment"><p>お客さんに Dynamic Type の存在を説明し、機能の使用許可を得る。</p></li><li class="fragment"><p>固定フォントにしているところを 本来指示されていたテキストスタイルに置き換える。</p></li></ol></div></section>
+<section id="_accessibility_サイズカテゴリの対応について"><h2>Accessibility サイズカテゴリの対応について</h2><div class="ulist"><ul><li class="fragment"><p>特殊なデザイン指示になる場合がある</p><div class="ulist"><ul><li><p>例: ヨコに整列したテキストがタテに整列する</p></li></ul></div></li><li class="fragment"><p>利用ユーザーが少ない</p><div class="ulist"><ul><li><p>そこまで大きい文字に設定している人が少ない</p></li><li><p>Accessibility サイズだと表示が大きく崩れるアプリが結構ある</p></li></ul></div></li></ul></div>
+<div class="paragraph"><p>
+<p class="fragment fade-in">
+対応するかしないか、どのフェーズで対応するか等を予め決めておこう
+</p>
+</p></div></section>
+<section id="_そのほか" class="center"><h2>そのほか</h2></section>
+<section id="_ios_10_文字サイズの上限があった"><h2>[〜 iOS 10] 文字サイズの上限があった</h2><div class="imageblock" style=""><img src="/assets/img/ios-type-scaling-behavior.png" alt="ios type scaling behavior" height="1000"></div>
+<div class="paragraph"><p>出典: <a href="https://github.com/Raizlabs/BonMot" class="bare">https://github.com/Raizlabs/BonMot</a></p></div></section>
+<section id="_ios_11_基本スタイルのセルに動きあり"><h2>[iOS 11] 基本スタイルのセルに動きあり</h2><div class="paragraph"><p>Accessibility サイズになると…</p></div>
+<div class="paragraph"><p>↓iOS 10</p></div>
+<div class="imageblock" style=""><img src="/quiver-image-url/D93033E9E5C49661B7C0BA5C3B99CA0A.jpg" alt="D93033E9E5C49661B7C0BA5C3B99CA0A"></div>
+<div class="paragraph"><p>↓iOS 11</p></div>
+<div class="imageblock" style=""><img src="/quiver-image-url/D7A8A4E4D6726A1CA11E42C4E23DD08F.jpg" alt="D7A8A4E4D6726A1CA11E42C4E23DD08F"></div>
+<div class="paragraph"><p>（罫線もちょっと太くなってる）</p></div></section>
+<section id="_多分こんなことをやっている"><h2>多分こんなことをやっている</h2><pre class="highlight listingblock"><code class="swift language-swift">class StackTableViewCell: UITableViewCell {
+    @IBOutlet private weak var stackView: UIStackView!
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateStackViewAxis()
+    }
+
+    private func updateStackViewAxis() {
+        stackView.axis =
+            traitCollection
+                .preferredContentSizeCategory
+                .isAccessibilityCategory
+                    ? .vertical
+                    : .horizontal
+    }
+}</code></pre></section>
+<section id="_まとめ"><h2>まとめ</h2><div class="ulist"><ul><li class="fragment"><p>iOS 11 で Apple が本気出し始めた</p></li><li class="fragment"><p>まだ機能が不安定で様子見してる猶予はあるので今の内から準備を</p></li><li class="fragment"><p>デザイナーのDynamic Typeに関する知識が重要</p></li><li class="fragment"><p>テスト対象となるサイズの範囲に気をつける</p></li></ul></div></section>
+<section id="_今回使ったデモアプリ" class="center"><h2>今回使ったデモアプリ</h2><div class="paragraph"><p><a href="https://github.com/mshibanami/DynamicTypeShowcase" class="bare">https://github.com/mshibanami/DynamicTypeShowcase</a></p></div></section>
+<section id="_ご清聴ありがとうございました" class="center"><h2>ご清聴ありがとうございました。</h2></section>
+      </div>
+    </div>
+    <link href="/lib/reveal.js/css/reveal.css" rel="stylesheet" />
+    <link href="/assets/css/compiled/revealjs-theme.css" rel="stylesheet" />
+    <script src="/lib/reveal.js/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        dependencies: [
+            {
+              src: '/lib/reveal.js/plugin/markdown/marked.js',
+              condition: function () {
+                return !!document.querySelector('[data-markdown]');
+              }
+            },
+            {
+              src: '/lib/reveal.js/plugin/markdown/markdown.min.js',
+              condition: function () {
+                return !!document.querySelector('[data-markdown]');
+              }
+            },
+        ],
+        history: true,
+        transition: "fade",
+        center: false,
+        width: 1920,
+        height: 1100,
+      });
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet" />
+    <script src="/lib/highlightjs/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-46019833-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    
+  </body>
+</html>

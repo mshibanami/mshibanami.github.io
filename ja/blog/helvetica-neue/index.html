@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Manabu Nakazawa</title>
+    <meta content="Manabu Nakazawa" name="author" />
+    <meta content="website" property="og:type" />
+    <meta content="Manabu Nakazawa" property="og:title" />
+    <meta content="/assets/img/favicon-196.png" property="og:image" />
+    <meta content="/ja/blog/helvetica-neue/index.html" property="og:url" />
+    <meta content="ja_JP" property="og:locale" />
+    <link href="/assets/img/favicon-196.png" rel="shortcut icon" type="image/png" />
+    <link href="/assets/img/favicon-196.png" rel="shortcut icon" sizes="196x196" />
+    <link href="/assets/img/favicon-196.png" rel="apple-touch-icon" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet" />
+    <link href="/assets/css/compiled/main.css" rel="stylesheet" />
+    <script defer="" src="/lib/jquery/jquery.min.js"></script>
+    <script defer="" src="/lib/foundation-sites/js/foundation.min.js"></script>
+    <script crossorigin="anonymous" defer="" integrity="sha384-G/XjSSGjG98ANkPn82CYar6ZFqo7iCeZwVZIbNWhAmvCF2l+9b5S21K4udM7TGNu" src="https://use.fontawesome.com/releases/v5.0.13/js/brands.js"></script>
+    <script crossorigin="anonymous" defer="" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+    <script defer="" src="/assets/js/app.js"></script>
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-46019833-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet" />
+    <script src="/lib/highlightjs/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x align-middle">
+          <div class="cell medium-auto medium-align-left">
+            <a href="/ja/">
+              <h1>
+                Manabu Nakazawa
+              </h1>
+            </a>
+          </div>
+          <div class="cell medium-auto">
+            <nav class="hover-underline-menu" data-menu-underline-from-center="">
+              <ul class="menu medium-align-right">
+                <li>
+                  <a href="/ja/">ホーム</a>
+                </li>
+                <li class="is-active">
+                  <a href="/ja/blog">ブログ</a>
+                </li>
+                <li>
+                  <a href="/ja/slides">スライド</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-y">
+        <div class="cell text-right">
+          <span><a href="/en/blog/helvetica-neue/" target="_self">English</a></span>
+        </div>
+      </div>
+    </div><article class="blog-post grid-container">
+  <div class="grid-x grid-padding-y">
+    <div class="cell">
+      <header class="text-center">
+        <h1>
+          Helvetica Neueは数値が等幅
+        </h1>
+        <span class="date">2016年2月3日</span>
+      </header><h2 id="まえがき">まえがき</h2>
+
+<p>先日、動画アプリを作った。</p>
+
+<p><img src="/assets/img/randomtube-screenshot.jpg" alt="randomtube-screenshot.jpg" /></p>
+
+<p>シークバーは上のように、左右に経過時間と合計時間がそれぞれ表示されるようになっている。
+経過時間（左時間ラベル）の最大幅はその動画の合計時間の幅にしていて、
+例えば 1:23:45 の動画なら 現在時刻が 0:00 だとしても 1:23:45 の幅を維持されるようになる。</p>
+
+<p>なぜ時間幅を単純に Auto Layout で指定しないのかというと、
+もし経過時間によってラベル幅が動的に変わってしまうと、シークバーの幅も変わり、
+つまみを動かしている時につまみがガタガタ動いてしまって目的の位置までスライドできないからだ。</p>
+
+<h2 id="問題">問題</h2>
+
+<p>iOS9になってから、この左の経過時間ラベルの表示がおかしくなった。</p>
+
+<p>例えば「1:23」という表示が「1:…」のように省略されるようになってしまった。</p>
+
+<h2 id="原因">原因</h2>
+
+<p>これは、iOS 8 までで使われていた Helvetica Neue で通用していた経過時間の最大幅の決定方法が、
+iOS 9から新たにシステムフォントとなった San Francisco では通用しなくなったのが原因だ。</p>
+
+<p>Helvetica Neue はプロポーショナルフォントだが、数値だけは等幅だ。
+その為、例えば1:23:45の最大幅を決める為に、どの文字が一番大きいかなど考える必要がなく、
+単に1:23:45を最大幅と考えることが出来た。</p>
+
+<p>一方 San Francisco では、数値もプロポーショナルフォントとなっている。
+しかも、サイズと太さの組み合わせによって、0が一番大きかったり8が一番大きかったりする。</p>
+
+<p>その為、もし0が一番大きい場合、合計時間が 1:23:45 なら 00:00:00 の文字幅を取れば良い。</p>
+
+<p>そもそも San Francisco ほどに違わないとしても、数値がプロポーショナルフォントというのは
+全く珍しくない。デザイン重視のAppleが一般ユーザーの目に触れるフォントとして採用していた
+フォントが等幅だった方が変だったと思う。</p>
+
+<p>でも無印Helveticaでさえ1だけは幅が狭いので、あえて等幅が選ばれた理由は何かあるっぽい。</p>
+
+<h2 id="解決方法">解決方法</h2>
+
+<ol>
+  <li>
+    <p>Helvetica Neueにする</p>
+
+    <p>一番楽な解決方法。</p>
+
+    <p>でも一般ユーザーの目に触れるものを等幅にしたくない。
+ また、San Franciscoは時間を表す時に使う「:」の位置も前後の文字によって動的に変わったりと、表示の美しさにこだわってるのでなるべくそっちを使いたい。</p>
+
+    <p>なので却下。</p>
+  </li>
+  <li>
+    <p>San Franciscoの等幅モードを使う</p>
+
+    <p><code>UIFont</code> には <code>+ monospacedDigitSystemFontOfSize:weight:</code> というメソッドがあり、San Francisco でも等幅になる。</p>
+
+    <p>ただ、太さによっては<a href="https://forums.developer.apple.com/thread/19671">このメソッドが効かないとかいう話</a>があったりするし、
+ IBの設定だけで有効には出来ないし、アルファベットまで等幅になるし、そもそも等幅は嫌だしで却下。</p>
+  </li>
+  <li>
+    <p>一番幅広の文字をあらかじめ調べてハードコーディングしておく</p>
+
+    <p>柔軟性は無いが、フォントサイズがあらかじめ分かっていて、そのフォントが動的に変わるわけでなければこれで十分。</p>
+
+    <p>今回はこれにした。</p>
+  </li>
+  <li>
+    <p>サイズと太さによって数値文字の幅を動的に決定する</p>
+
+    <p><code>NSString</code>の<code>- sizeWithAttributes:</code>で一番幅広の文字を探しておき、それを使う。</p>
+
+    <p>多少のコードが必要になるがフォントの変更に柔軟に対応できる。</p>
+  </li>
+</ol>
+
+    </div>
+  </div>
+</article><footer class="footer">
+      <div class="grid-container">
+        <div class="grid-x align-middle">
+          <div class="cell text-center">
+            <ul class="sns-icons">
+              <li>
+                <a href="https://twitter.com/mshibanami" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://github.com/mshibanami" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/mshibanami" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="cell text-center">
+            <span class="copyright">© 2019 Manabu Nakazawa</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

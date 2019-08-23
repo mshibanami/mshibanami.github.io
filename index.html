@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting...</title><noscript>
+      <meta content="0; url=en/" http-equiv="refresh" />
+    </noscript>
+    <script>
+      var lang = (window.navigator.userLanguage || window.navigator.language)
+          .replace(/[_-].*/, '') // Country translation not supported
+          .toLowerCase();
+      
+      if (lang in ["en", "ja"]) {
+          location.href = '/' + lang + '/';
+      }
+      else {
+          location.href = 'en/';
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

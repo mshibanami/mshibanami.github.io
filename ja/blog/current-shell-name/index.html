@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Manabu Nakazawa</title>
+    <meta content="Manabu Nakazawa" name="author" />
+    <meta content="website" property="og:type" />
+    <meta content="Manabu Nakazawa" property="og:title" />
+    <meta content="/assets/img/favicon-196.png" property="og:image" />
+    <meta content="/ja/blog/current-shell-name/index.html" property="og:url" />
+    <meta content="ja_JP" property="og:locale" />
+    <link href="/assets/img/favicon-196.png" rel="shortcut icon" type="image/png" />
+    <link href="/assets/img/favicon-196.png" rel="shortcut icon" sizes="196x196" />
+    <link href="/assets/img/favicon-196.png" rel="apple-touch-icon" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet" />
+    <link href="/assets/css/compiled/main.css" rel="stylesheet" />
+    <script defer="" src="/lib/jquery/jquery.min.js"></script>
+    <script defer="" src="/lib/foundation-sites/js/foundation.min.js"></script>
+    <script crossorigin="anonymous" defer="" integrity="sha384-G/XjSSGjG98ANkPn82CYar6ZFqo7iCeZwVZIbNWhAmvCF2l+9b5S21K4udM7TGNu" src="https://use.fontawesome.com/releases/v5.0.13/js/brands.js"></script>
+    <script crossorigin="anonymous" defer="" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+    <script defer="" src="/assets/js/app.js"></script>
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-46019833-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet" />
+    <script src="/lib/highlightjs/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x align-middle">
+          <div class="cell medium-auto medium-align-left">
+            <a href="/ja/">
+              <h1>
+                Manabu Nakazawa
+              </h1>
+            </a>
+          </div>
+          <div class="cell medium-auto">
+            <nav class="hover-underline-menu" data-menu-underline-from-center="">
+              <ul class="menu medium-align-right">
+                <li>
+                  <a href="/ja/">ホーム</a>
+                </li>
+                <li class="is-active">
+                  <a href="/ja/blog">ブログ</a>
+                </li>
+                <li>
+                  <a href="/ja/slides">スライド</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-y">
+        <div class="cell text-right">
+          <span><a href="/en/blog/current-shell-name/" target="_self">English</a></span>
+        </div>
+      </div>
+    </div><article class="blog-post grid-container">
+  <div class="grid-x grid-padding-y">
+    <div class="cell">
+      <header class="text-center">
+        <h1>
+          実行中のシェル名の確認方法を考える
+        </h1>
+        <span class="date">2016年2月2日</span>
+      </header><h2 id="まえがき">まえがき</h2>
+
+<p>去年の12月、Facebookの<a href="https://github.com/facebook/infer">Infer</a>がHomebrewに追加されたことを知った。</p>
+
+<p><a href="https://github.com/Homebrew/homebrew/commits/master/Library/Formula/infer.rb">https://github.com/Homebrew/homebrew/commits/master/Library/Formula/infer.rb</a></p>
+
+<p>InferはOCamlで書かれているが、そのバージョン指定が厳しくてHomebrewになかなか出せないとかいう話があった。</p>
+
+<p>Facebookは最初、ビルド済みのバイナリを公開してくれていて、Homebrew-caskの方ではそれが使われていた。
+Homebrewでも同じくバイナリを使ったサポートをしようとしてたけど、バイナリがいつの間にか消されててできなくなっていた。</p>
+
+<p><a href="https://github.com/Homebrew/homebrew/pull/40597">https://github.com/Homebrew/homebrew/pull/40597</a></p>
+
+<p>その時自分は、じゃあ自分でビルドしようと思い、OCamlを入れてみた。</p>
+
+<p>opamの起動スクリプトは各シェル用のものがあった。
+何もしてないとインストール時にその読み込み設定がログインシェルの.*shrcに書かれる。
+自分の場合は.zshrcに以下が書かれた。</p>
+
+<pre><code class="language-sh">. /Users/ユーザー名/.opam/opam-init/init.zsh &gt; /dev/null 2&gt; /dev/null || true
+</code></pre>
+
+<p>また、<code>~/.opam/opam-init/</code>には他にも</p>
+
+<ul>
+  <li>init.fish</li>
+  <li>init.sh</li>
+  <li>init.zsh</li>
+  <li>init.csh</li>
+</ul>
+
+<p>があった。(bashはない。)
+各シェルの.*shrcにこれらを書いてもいいけど設定が分散するのは嫌だ。
+なので実行中のシェル名を見てこれらを分ける処理を共通の.shrcに書きたい。
+そこで現在実行中のシェル名が欲しくなった。</p>
+
+<h2 id="案1-echo-0">案1: <code>echo $0</code></h2>
+
+<ul>
+  <li>実行中スクリプトのパス。</li>
+  <li>シェル名が表示されるのはシェルと対話中の時だけ</li>
+  <li>fish-shellやcsh、tcshでは$0は設定されてない</li>
+</ul>
+
+<h2 id="案2-ps--p---oargs--sed--e-sg">案2: <code>ps -p $$ -oargs= | sed -e 's:^.*/::g'</code></h2>
+
+<h3 id="内訳">内訳</h3>
+
+<ul>
+  <li>$$は現在のプロセス名</li>
+  <li>
+    <p>sedで不要な出力を無文字に置換で削除</p>
+
+    <p>sedでは普通、<code>s/パターン/置換文字/m</code>のようにスラッシュ区切りで使われるが、今回扱う文字にはパスが含まれる為<code>:</code>を使う。
+  この場合は一番下の行の最初から一番最後のスラッシュまでを削除する。</p>
+  </li>
+  <li>oargsはocommとすることも出来る</li>
+</ul>
+
+<h3 id="問題点">問題点</h3>
+
+<ul>
+  <li>$$はfish-shellでは使えない</li>
+  <li>csh や tcsh ではプロセス名がそれぞれ <code>-sh</code> と <code>-csh</code> となり、先頭の文字が消されてしまう。
+ハイフンが付いてるだけならまだしも、全く別のシェルとして表示されるのは困る。おそらくバグ。
+<code>-</code>を<code>t</code>に置換すれば可能だがそういう場当たり的対処は後で修正された時が面倒。</li>
+</ul>
+
+<h2 id="案3-ps--p-self--oargs--sed--e-sg">案3: <code>ps -p %self -oargs= | sed -e 's:^.*/::g'</code></h2>
+
+<ul>
+  <li><code>%self</code>はfish-shellでしか使えない</li>
+</ul>
+
+<h2 id="案4-echo-shell--sed--e-sg">案4: <code>echo $SHELL | sed -e 's:^.*/::g'</code></h2>
+
+<ul>
+  <li>cshやtcshでは使えない</li>
+  <li>シェルのネストに対応できない</li>
+</ul>
+
+<h2 id="案5-echo-shell">案5: <code>echo $shell</code></h2>
+
+<ul>
+  <li>cshやtcsh以外では使えない</li>
+  <li>cshでもtcshになる。OSXの/bin/cshは/bin/tcshを呼び出してるので当然だが。</li>
+</ul>
+
+<p>以上から、1つのコードでsh、bash、zsh、fish、csh、tcshシェルを判定したい。
+しかしcsh系とその他では以下if文とエラー出力の無視という点が他と異なるので無理と判断。
+cshとtcshは諦めた。sh、bash、zshでこんな感じにして妥協しようか。</p>
+
+<pre><code class="language-sh">shellName=$(ps -p $$ -oargs= 2&gt; /dev/null)
+if [ -z "$shellName" ]; then;
+  shellName=$(ps -p %self -oargs=) #fish-shell用
+fi
+shellName=$(echo $shellName | sed -e 's:^.*/::g')
+
+echo "シェル名: $shellName"
+</code></pre>
+
+<p>なんか小汚いしどうでも良くなってきた。今は<code>.*shrc</code>へそれぞれ書いてる。でも何か方法は無いだろうか。</p>
+
+<p>参考:</p>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on">http://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on</a></li>
+</ul>
+
+
+    </div>
+  </div>
+</article><footer class="footer">
+      <div class="grid-container">
+        <div class="grid-x align-middle">
+          <div class="cell text-center">
+            <ul class="sns-icons">
+              <li>
+                <a href="https://twitter.com/mshibanami" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://github.com/mshibanami" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/mshibanami" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="cell text-center">
+            <span class="copyright">© 2019 Manabu Nakazawa</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

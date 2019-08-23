@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Manabu Nakazawa</title>
+    <meta content="Manabu Nakazawa" name="author" />
+    <meta content="website" property="og:type" />
+    <meta content="Manabu Nakazawa" property="og:title" />
+    <meta content="/assets/img/favicon-196.png" property="og:image" />
+    <meta content="/en/blog/ios-and-mpeg-dash/index.html" property="og:url" />
+    <meta content="en_US" property="og:locale" />
+    <link href="/assets/img/favicon-196.png" rel="shortcut icon" type="image/png" />
+    <link href="/assets/img/favicon-196.png" rel="shortcut icon" sizes="196x196" />
+    <link href="/assets/img/favicon-196.png" rel="apple-touch-icon" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet" />
+    <link href="/assets/css/compiled/main.css" rel="stylesheet" />
+    <script defer="" src="/lib/jquery/jquery.min.js"></script>
+    <script defer="" src="/lib/foundation-sites/js/foundation.min.js"></script>
+    <script crossorigin="anonymous" defer="" integrity="sha384-G/XjSSGjG98ANkPn82CYar6ZFqo7iCeZwVZIbNWhAmvCF2l+9b5S21K4udM7TGNu" src="https://use.fontawesome.com/releases/v5.0.13/js/brands.js"></script>
+    <script crossorigin="anonymous" defer="" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+    <script defer="" src="/assets/js/app.js"></script>
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-46019833-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet" />
+    <script src="/lib/highlightjs/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x align-middle">
+          <div class="cell medium-auto medium-align-left">
+            <a href="/en/">
+              <h1>
+                Manabu Nakazawa
+              </h1>
+            </a>
+          </div>
+          <div class="cell medium-auto">
+            <nav class="hover-underline-menu" data-menu-underline-from-center="">
+              <ul class="menu medium-align-right">
+                <li>
+                  <a href="/en/">Home</a>
+                </li>
+                <li class="is-active">
+                  <a href="/en/blog">Blog</a>
+                </li>
+                <li>
+                  <a href="/en/slides">Slides</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-y">
+        <div class="cell text-right">
+          <span><a href="/ja/blog/ios-and-mpeg-dash/" target="_self">日本語</a></span>
+        </div>
+      </div>
+    </div><article class="blog-post grid-container">
+  <div class="grid-x grid-padding-y">
+    <div class="cell">
+      <header class="text-center">
+        <h1>
+          iOS and MPEG-DASH
+        </h1>
+        <span class="date">1 Nov 2015</span>
+      </header><p>The other day, I created a YouTube app for iOS.
+And I tried to get my app to play 1080p videos from YouTube.
+But it was not easy.</p>
+
+<p>YouTube does not provide 1080p or higher resolution videos in the HLS format.
+Currently, They only provide it in the MPEG-DASH format.
+But iOS does not support MPEG-DASH, only HLS.</p>
+
+<p>I tried to find a third party library. But I couldn’t find any good ones.</p>
+
+<p>So I sent a feature request to enable support from MPEG-DASH to Apple a year ago.
+And finally, I got the answer from them yesterday.</p>
+
+<pre><code class="language-none">Hi Manabu,
+This is a courtesy email regarding Bug ID# 19279150.
+Engineering has the following feedback for you:
+We checked with YouTube and this was their response:
+“If the content is available in 1080p in DASH, it should be available in 1080p in HLS, both in the YouTube native app, and also via the HLS experiment Safari”
+So, this is something we have no plans to address as the entire YouTube DASH-encoded catalog is also available on iOS.
+We are now closing this bug report.
+</code></pre>
+
+<p>But actually, It looks like 1080p videos in the HLS are not available.</p>
+
+<p>It probably means YouTube is preparing for 1080p HLS videos now.
+I hope that day will soon come.</p>
+
+    </div>
+  </div>
+</article><footer class="footer">
+      <div class="grid-container">
+        <div class="grid-x align-middle">
+          <div class="cell text-center">
+            <ul class="sns-icons">
+              <li>
+                <a href="https://twitter.com/mshibanami" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://github.com/mshibanami" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/mshibanami" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="cell text-center">
+            <span class="copyright">© 2019 Manabu Nakazawa</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
