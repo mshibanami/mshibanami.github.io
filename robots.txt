@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mshibanami.github.io
+
+# Sitemaps
+Sitemap: https://mshibanami.github.io/sitemap.xml
