@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mshibanami.github.io</id>
+    <title>Manabu Nakazawa</title>
+    <updated>2025-12-27T03:54:35.261Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Manabu Nakazawa</name>
+        <email>mshibanami+website@gmail.com</email>
+    </author>
+    <link rel="alternate" href="https://mshibanami.github.io"/>
+    <link rel="self" href="https://mshibanami.github.io/updates.atom"/>
+    <subtitle>Manabu Nakazawa's personal webpage</subtitle>
+    <rights>© Manabu Nakazawa</rights>
+    <entry>
+        <title type="html"><![CDATA[Unrush]]></title>
+        <id>https://mshibanami.github.io/projects/unrush</id>
+        <link href="https://mshibanami.github.io/projects/unrush"/>
+        <updated>2025-12-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A web app that helps busy minds reset in minutes with quotes and the meditation timer.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[WebP for Quick Look]]></title>
+        <id>https://mshibanami.github.io/projects/webp-for-quicklook</id>
+        <link href="https://mshibanami.github.io/projects/webp-for-quicklook"/>
+        <updated>2025-12-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Quick Look extension for macOS that allows you to preview animated WebP images at original speed.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[My Reddit account was locked, and then shadowbanned.]]></title>
+        <id>https://mshibanami.github.io/blog/reddit-shadowbanned</id>
+        <link href="https://mshibanami.github.io/blog/reddit-shadowbanned"/>
+        <updated>2025-11-30T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>TL;DR</strong>: I submitted a post to r/MacApps, then my Reddit account (<a href="https://www.reddit.com/user/mshibanami/">u/mshibanami</a>) was locked. Roughly 10 hours later, my account was shifted to a shadowbanned state. Due to this status, all my posts were automatically filtered out. I have waited for 3 months now, but Reddit didn't take any more actions. So I gave up this account.</p>
+<h2>Summary</h2>
+<p>In August 2025, I released a new version of my app called <a href="https://mshibanami.github.io/redirect-web/">Redirect Web</a>, and posted it in <a href="https://www.reddit.com/r/macapps/">r/macapps</a> as a self-promotion since it was allowed according to their rules. After that, my account was locked by Reddit, and all my posts were automatically hidden.</p>
+<p>I wrote this article to document what happened, ensuring transparency regarding myself and my work. I hope this record helps others who encounter the same issue, even though I was unable to resolve it myself.</p>
+<h2>Posts affected</h2>
+<p>All of my comments, and my posts (which were just the following two):</p>
+<ul>
+<li>[Aug 2025] <a href="https://www.reddit.com/r/macapps/comments/1mzpxlk/">[Big Update] Redirect Web 8 - now supports multiple browsers, not just Safari!</a></li>
+<li>[Aug 2024] <a href="https://www.reddit.com/r/macapps/comments/1ejqelt/">I made a Safari extension for macOS &#x26; iOS called Redirect Web, which allows you to redirect any web page to another</a></li>
+</ul>
+<h2>Timeline</h2>
+<ul>
+<li><strong>25 Aug at 1:04 AM (UTC)</strong>
+<ul>
+<li>I posted on <a href="https://www.reddit.com/r/macapps/">r/MacApps</a> for announcing <a href="https://mshibanami.github.io/redirect-web/release-notes/8.0.0">Redirect Web's update</a>, and I was replying to the Redditors until my account was locked.</li>
+</ul>
+</li>
+<li><strong>25 Aug at 7:21 PM (UTC)</strong>
+<ul>
+<li>My account was locked by Reddit.</li>
+<li>All of my posts were also removed with this message: <code>Sorry, this post was removed by Reddit’s filters.</code></li>
+<li>I received the account lock email and reset my password as instructed, but my account remained restricted.</li>
+<li>I sent an appeal to Reddit via <a href="https://www.reddit.com/appeals">https://www.reddit.com/appeals</a>.</li>
+</ul>
+</li>
+<li><strong>~10 hours later</strong>
+<ul>
+<li>My account was <strong>placed under a shadowban</strong> by Reddit,
+<ul>
+<li>At this time, I mistakenly thought it had been fully reinstated.</li>
+</ul>
+</li>
+<li>My posts still didn't appear publicly, so I sent a message to r/MacApps mods through <a href="https://www.reddit.com/message/compose?to=r/macapps">Modmail</a> to restore them.</li>
+</ul>
+</li>
+<li><strong>26 Aug at 8:58PM (UTC)</strong>
+<ul>
+<li>r/MacApps Mod Team <a href="https://www.reddit.com/r/macapps/comments/1mzpxlk/comment/nau0ur1/">posted</a> a comment: "Poster's account suspended by Reddit."</li>
+<li>The error message <code>Sorry, this post was removed by Reddit’s filters.</code> was also replaced with <code>Sorry, this post has been removed by the moderators of r/macapps.</code></li>
+</ul>
+</li>
+<li><strong>27 Aug</strong>
+<ul>
+<li>I contacted mods via Modmail again, and they replied to me that they couldn't restore my posts because I'm shadowbanned.</li>
+</ul>
+</li>
+<li><strong>30 Nov</strong>
+<ul>
+<li>I confirmed my account is still shadowbanned. I gave up my account.</li>
+</ul>
+</li>
+</ul>
+<h2>Why did Reddit do it?</h2>
+<p>I'm not too sure, but I assume these could have triggered Reddit filters:</p>
+<ul>
+<li>The last activity of my account was <a href="https://www.reddit.com/r/Safari/comments/1jp5scj/comment/mkxlbuw/">5 months ago</a>, and I suddenly posted a self-promotion post and actively replied to other users.</li>
+<li>I was using NordVPN. (Australian server, where I also live.)</li>
+<li>I was accessing Reddit using Firefox Nightly without any extensions.</li>
+<li>I was on Reddit overnight.</li>
+</ul>
+<h2>Impact</h2>
+<p>Since my account was shadowbanned, other users can no longer read my posts. They are also gone from Google Search, which is a major loss in acquiring new users.</p>
+<ul>
+<li><a href="https://www.reddit.com/r/macapps/comments/1ejqelt/">My older post</a> still has its title and my replies to other comments since its status is still <code>Sorry, this post was removed by Reddit’s filters.</code>.</li>
+<li><a href="https://www.reddit.com/r/macapps/comments/1mzpxlk/">My newer post</a>'s title is <em>[ Removed by moderator ]</em> and all my comments are hidden for other users, not even showing <em>Comment removed by moderator.</em> It's completely invisible for other users while I can still see it using my u/mshibanami account.</li>
+</ul>
+<h2>Could mods have restored the post?</h2>
+<p>I don't think so, although I'm not 100% sure.</p>
+<p>After reading <a href="https://support.reddithelp.com/hc/en-us/articles/15484365010196-Mod-Mode">Reddit's documentation</a>, I thought mods should have been able to approve my post manually. In fact, when they <a href="https://www.reddit.com/r/macapps/comments/1mzpxlk/comment/nau0ur1/">posted a comment</a>, the status of my post was also changed to "Sorry, this post has been removed by the moderators of r/MacApps." from "<br>
+Sorry, this post was removed by Reddit’s filters." However, since my account was shadownbanned, they probably couldn't do it. At least that's what they explained to me via Modmail.</p>
+<p>However, I have no experience as a mod and I couldn't find any official documentation about this specific situation. If you have more information, please let me know.</p>
+<h2>Appendix</h2>
+<h3>Email from Reddit (<code>noreply@redditmail.com</code>)</h3>
+<blockquote>
+<p>Hi u/mshibanami,</p>
+<p>At Reddit, we're always watching out for your privacy, safety, and security. Recently, after detecting some technical irregularities on your u/mshibanami account, we took the extra precaution of locking your account.</p>
+<p>To unlock your account, reset your password now.</p>
+<p>We recommend choosing a new password that you haven't used on Reddit or another website or app before.</p>
+<p>To prevent your account from potential misuse, you won't be able to take part in communities or update the majority of your settings while your account is locked. Also, when you log in you'll see a red warning and a security message like this one asking you to reset your password.</p>
+</blockquote>
+<h3>Reply from r/MacApps Mod Team via Modmail</h3>
+<blockquote>
+<p>r/macapps MOD 2:03 AM
+Thanks for reaching out</p>
+<p>• Your account appears to have been suspended: Your account is site-wide shadow banned.</p>
+<p>• This means that only mods of individual subreddits can see your content. You need to contact the admins to get it sorted out.</p>
+<p>• Appeals can be made here: <a href="https://www.reddit.com/appeals">https://www.reddit.com/appeals</a></p>
+</blockquote>
+<blockquote>
+<p>Your account is still suspended. Sorry</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redirect Web]]></title>
+        <id>https://mshibanami.github.io/projects/redirect-web-for-safari</id>
+        <link href="https://mshibanami.github.io/projects/redirect-web-for-safari"/>
+        <updated>2021-08-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Browser extension for iOS and macOS that allows you to redirect from a specific URL to wherever you want to jump.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Translate Web for Safari]]></title>
+        <id>https://mshibanami.github.io/projects/translate-web-for-safari</id>
+        <link href="https://mshibanami.github.io/projects/translate-web-for-safari"/>
+        <updated>2020-05-31T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Safari extension that translates the current tab or selected text.]]></summary>
+        <content type="html"><![CDATA[<div class="imageblock">
+<div class="content">
+<img src="/images/TranslateWebForSafari_Screenshot.jpg" alt="Window of Redirect Web for Safari">
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<a class="image" href="https://apps.apple.com/app/id1513175329"><img src="/images/appstore-badge.svg" alt="App Store badge"></a>
+</div>
+</div>
+<div class="paragraph">
+<p>This is a Safari extension that translates the current tab or selected text.</p>
+</div>
+<div class="paragraph">
+<p>You can get this extension from the above App Store link or <a href="https://github.com/mshibanami/TranslateWebForSafari/releases">Releases on Github</a>.</p>
+</div>
+<div class="sect1">
+<h2 id="_privacy_policy">Privacy Policy</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Translate Web for Safari</strong> does not collect your personal information.</p>
+</div>
+<div class="paragraph">
+<p><strong>Personal information</strong> is information or an opinion about an identified individual or an individual who is reasonably identifiable.</p>
+</div>
+</div>
+</div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA["subscriptions:insert" returns an error]]></title>
+        <id>https://mshibanami.github.io/blog/subscriptions-insert-error</id>
+        <link href="https://mshibanami.github.io/blog/subscriptions-insert-error"/>
+        <updated>2018-08-23T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Today I noticed that the <a href="https://developers.google.com/youtube/v3/docs/subscriptions/insert">subscriptions:insert</a> method of YouTube Data API V3 returns this error:</p>
+<div><pre><code class="language-json"><span>{</span>
+ <span>"error"</span><span>:</span> <span>{</span>
+  <span>"errors"</span><span>:</span> <span>[</span>
+   <span>{</span>
+    <span>"domain"</span><span>:</span> <span>"youtube.subscription"</span><span>,</span>
+    <span>"reason"</span><span>:</span> <span>"publisherNotFound"</span><span>,</span>
+    <span>"message"</span><span>:</span> <span>"The resource specified by the requests &#x3C;code>snippet.resourceId&#x3C;/code> property cannot be found."</span>
+   <span>}</span>
+  <span>]</span><span>,</span>
+  <span>"code"</span><span>:</span> <span>404</span><span>,</span>
+  <span>"message"</span><span>:</span> <span>"The resource specified by the requests &#x3C;code>snippet.resourceId&#x3C;/code> property cannot be found."</span>
+ <span>}</span>
+<span>}</span>
+</code></pre></div>
+<p>This is the request body that I sent:</p>
+<div><pre><code class="language-json"><span>{</span>
+ <span>"snippet"</span><span>:</span> <span>{</span>
+  <span>"resourceId"</span><span>:</span> <span>{</span>
+   <span>"channelId"</span><span>:</span> <span>"UCa90xqK2odw1KV5wHU9WRhg"</span>
+  <span>}</span>
+ <span>}</span>
+<span>}</span>
+</code></pre></div>
+<p>The above request was valid before. But now, it seems that we need a <code>kind</code>
+property for <code>snippet.resourceId</code> see below:</p>
+<div><pre><code class="language-json"><span>{</span>
+ <span>"snippet"</span><span>:</span> <span>{</span>
+  <span>"resourceId"</span><span>:</span> <span>{</span>
+   <span>"channelId"</span><span>:</span> <span>"UCa90xqK2odw1KV5wHU9WRhg"</span><span>,</span>
+   <span>"kind"</span><span>:</span> <span>"youtube#channel"</span>
+  <span>}</span>
+ <span>}</span>
+<span>}</span>
+</code></pre></div>
+<p>It would appear that subscribing to channels without this step
+is regarded as an invalid request.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gradle Wrapperを経由せずに実行する]]></title>
+        <id>https://mshibanami.github.io/blog/gradle-wrapper</id>
+        <link href="https://mshibanami.github.io/blog/gradle-wrapper"/>
+        <updated>2016-02-07T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Gradleでは基本的にGradleラッパーを介してプログラムが実行される。
+しかしこのラッパーはメモリを20MBほど消費し、CPUにも多少負荷をかけている。
+その為、直接プログラムを実行したい。</p>
+<p><code>build.gradle</code>に下記を書く。</p>
+<div><pre><code class="language-groovy">apply plugin<span>:</span><span>'application'</span>
+mainClassName <span>=</span> <span><span>"org.gradle.sample.Main"</span></span>
+</code></pre></div>
+<p><code>org.gradle.sample.Main</code>には、mainメソッドが存在するクラスを指定する。</p>
+<p>そして次のコマンドを実行する。</p>
+<div><pre><code class="language-zsh">% gradle clean installDist</code></pre></div>
+<p>すると<code>build/install/&#x3C;プログラム名>/bin/&#x3C;プログラム名></code> というファイルが作られるのでそれを実行する。</p>
+<p>ここで次のような例外が出た。</p>
+<blockquote>
+<p>Exception in thread "main" java.lang.ExceptionInInitializerError
+Caused by: java.lang.NullPointerException</p>
+</blockquote>
+<p>今までrunなどのGradleのタスクから実行していた時には出なかった例外だ。</p>
+<p>例外が発生しているのは以下のコード。</p>
+<div><pre><code class="language-java"><span>URL</span> dirUrl <span>=</span> <span>WordReader</span><span>.</span><span>class</span><span>.</span><span>getClassLoader</span><span>(</span><span>)</span><span>.</span><span>getResource</span><span>(</span><span>"dir"</span><span>)</span><span>;</span>
+<span>File</span><span>[</span><span>]</span> langFiles <span>=</span> <span>new</span> <span>File</span><span>(</span>dirUrl<span>.</span><span>getPath</span><span>(</span><span>)</span><span>)</span><span>.</span><span>listFiles</span><span>(</span><span>)</span><span>;</span>
+
+<span>for</span> <span>(</span><span>File</span> f <span>:</span> langFiles<span>)</span> <span>{</span>
+  <span>System</span><span>.</span>out<span>.</span><span>println</span><span>(</span>f<span>.</span><span>getName</span><span>(</span><span>)</span><span>)</span><span>;</span>
+<span>}</span>
+</code></pre></div>
+<p>例外はfor文の書き出しのところで起きている。
+つまりlangPathsがnullとなっている。</p>
+<p>この時、<code>dirUrl</code>は下記のようになっていた。</p>
+<div><pre><code class="language-bash"><span>&#x3C;</span>プロジェクトルート<span>></span>/build/install/<span>&#x3C;</span>プログラム名<span>></span>/lib/<span>&#x3C;</span>プログラム名<span>></span>.jar<span>!</span>/dir
+</code></pre></div>
+<p>つまり、jarファイル内のdirフォルダを読み込むのに失敗している。</p>
+<p><code>gradle run</code>した場合は下記のようになっていた。</p>
+<blockquote>
+<p>&#x3C;プロジェクトルート>/build/resources/main/dir</p>
+</blockquote>
+<p>jarファイル内のファイルを読み込むのは簡単だが、フォルダを読み込むのは難しい。</p>
+<p><a href="http://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file">http://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file</a></p>
+<p>これをなるべくコードは汚さず、runでもjarからでも動くようにしたい。</p>
+<p>jarの外に、jar内にあるリソースファイルと同じもののシンボリックリンクを作り、それを読み込むことにした。
+冗長だし、libフォルダの中に作ることになるので気持ち悪いが、一番コードを汚さず手軽な方法だと思う。</p>
+<p>まず、</p>
+<div><pre><code class="language-java"><span>URL</span> dirUrl <span>=</span> <span>WordReader</span><span>.</span><span>class</span><span>.</span><span>getClassLoader</span><span>(</span><span>)</span><span>.</span><span>getResource</span><span>(</span><span>"dir"</span><span>)</span><span>;</span>
+</code></pre></div>
+<p>としていたところを、</p>
+<div><pre><code class="language-java"><span>URL</span> dirUrl <span>=</span> <span>WordReader</span><span>.</span><span>class</span><span>.</span><span>getClassLoader</span><span>(</span><span>)</span><span>.</span><span>getResource</span><span>(</span><span>"./dir"</span><span>)</span><span>;</span>
+</code></pre></div>
+<p>とする。これで、jarからだと、</p>
+<blockquote>
+<p>&#x3C;プロジェクトルート>/build/install/&#x3C;プログラム名>/lib/dir</p>
+</blockquote>
+<p>を読み込もうとし、runからだと前述と変わらないパスを読み込もうとする。</p>
+<p>そして以下のコマンドを実行する。</p>
+<div><pre><code class="language-sh">% ./gradlew clean installDist
+% <span>ln</span> <span>-s</span> <span><span>`</span><span>pwd</span><span>`</span></span>/build/resources/main/* build/install/プログラム名/lib/
+</code></pre></div>
+<p>installDistを実行した時には build/resourcesという、ソースにあるリソースのコピーが作成される。
+その中にある全てのシンボリックリンクをlibフォルダ内に作っている。</p>
+<p>あとは前述の、生成された起動スクリプトを実行すれば動くはず。</p>
+<h2>まとめ</h2>
+<p>メモリをケチってやることでもない。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[言語別の数値単位表]]></title>
+        <id>https://mshibanami.github.io/blog/unit-prefixes-by-languages</id>
+        <link href="https://mshibanami.github.io/blog/unit-prefixes-by-languages"/>
+        <updated>2016-02-07T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>先日作った動画プレイヤーアプリには、動画の高評価数・低評価数を表示する機能がある。その評価数は、以下のように適切な単位で表示されるようにしている。</p>
+<p><img src="/images/randomtube-unit-prefix.jpg" alt="prefix"></p>
+<p>これはYouTubeの公式アプリに倣ったものだ。</p>
+<p>日本語の場合は、千・万・億・京のいずれかを使うことにしているが、他言語の場合はどうなるのかを示す資料が無かった。</p>
+<p>なので前にこんな表を作った。</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">English (en)</th>
+<th align="left">Spanish (es)</th>
+<th align="left">French (fr)</th>
+<th align="left">German (de)</th>
+<th align="left">Dutch (nl)</th>
+<th align="left">Polish (pl)</th>
+<th align="left">Italian (it)</th>
+<th align="left">Japanese (ja)</th>
+<th align="left">Chinese (Simplified) (zh-hans)</th>
+<th align="left">Chinese (Traditional) (zh-hant)</th>
+<th align="left">Korean (kr)</th>
+<th align="left">Vietnamese (vi)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>100</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>101</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>102</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>103</strong></td>
+<td align="left">K</td>
+<td align="left">K</td>
+<td align="left">k</td>
+<td align="left">Tsd.</td>
+<td align="left">k</td>
+<td align="left">tys.</td>
+<td align="left">?</td>
+<td align="left">千</td>
+<td align="left">千</td>
+<td align="left">千</td>
+<td align="left">천</td>
+<td align="left">N</td>
+</tr>
+<tr>
+<td align="left"><strong>104</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">万</td>
+<td align="left">万</td>
+<td align="left">万</td>
+<td align="left">만</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>105</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>106</strong></td>
+<td align="left">M</td>
+<td align="left">M</td>
+<td align="left">M</td>
+<td align="left">Mio.</td>
+<td align="left">mln.</td>
+<td align="left">mln</td>
+<td align="left">Mln</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Tr</td>
+</tr>
+<tr>
+<td align="left"><strong>107</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>108</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">億</td>
+<td align="left">亿</td>
+<td align="left">億</td>
+<td align="left">억</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>109</strong></td>
+<td align="left">G</td>
+<td align="left">G</td>
+<td align="left">G</td>
+<td align="left">Mrd.</td>
+<td align="left">?</td>
+<td align="left">?</td>
+<td align="left">なし</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Tỷ</td>
+</tr>
+<tr>
+<td align="left"><strong>1010</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>1011</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>1012</strong></td>
+<td align="left">T</td>
+<td align="left">T</td>
+<td align="left">T</td>
+<td align="left">Bio.</td>
+<td align="left">?</td>
+<td align="left">?</td>
+<td align="left">なし</td>
+<td align="left">兆</td>
+<td align="left">万亿</td>
+<td align="left">萬億  兆</td>
+<td align="left">조</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>1013</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>1014</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>1015</strong></td>
+<td align="left">P</td>
+<td align="left">P</td>
+<td align="left">P</td>
+<td align="left">Brd.</td>
+<td align="left">?</td>
+<td align="left">?</td>
+<td align="left">なし</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>1016</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">京</td>
+<td align="left">万万亿 (または亿亿)</td>
+<td align="left">萬萬億 (または億億)  京(台湾のみ)</td>
+<td align="left">경</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>その時のメモ書き。</p>
+<ul>
+<li>short scale: Tsd, Mln, Bln, Tln</li>
+<li>long scale: Tsd, Mln, Mrd, Bln</li>
+<li>国によってshort scale、long scale共に使われており、そういうところではKやMなどのSI接頭辞を使うっぽい</li>
+<li>イタリア語は10^9以降が色々解釈出来てしまうので使わないらしい</li>
+<li>韓国語は억以外の数値単位は使ってない？</li>
+<li>オランダ語はSI接頭辞とlong scaleが混ざってる？</li>
+</ul>
+<p>ソースを残してなかったので信ぴょう性が薄い。また、地域差もほとんど考慮してないので色々抜けのある資料だ。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Helvetica Neueは数値が等幅]]></title>
+        <id>https://mshibanami.github.io/blog/helvetica-neue</id>
+        <link href="https://mshibanami.github.io/blog/helvetica-neue"/>
+        <updated>2016-02-03T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h2>まえがき</h2>
+<p>先日、動画アプリを作った。</p>
+<p><img src="/images/randomtube-screenshot.jpg" alt="randomtube-screenshot.jpg"></p>
+<p>シークバーは上のように、左右に経過時間と合計時間がそれぞれ表示されるようになっている。
+経過時間（左時間ラベル）の最大幅はその動画の合計時間の幅にしていて、
+例えば 1:23:45 の動画なら 現在時刻が 0:00 だとしても 1:23:45 の幅を維持されるようになる。</p>
+<p>なぜ時間幅を単純に Auto Layout で指定しないのかというと、
+もし経過時間によってラベル幅が動的に変わってしまうと、シークバーの幅も変わり、
+つまみを動かしている時につまみがガタガタ動いてしまって目的の位置までスライドできないからだ。</p>
+<h2>問題</h2>
+<p>iOS9になってから、この左の経過時間ラベルの表示がおかしくなった。</p>
+<p>例えば「1:23」という表示が「1:...」のように省略されるようになってしまった。</p>
+<h2>原因</h2>
+<p>これは、iOS 8 までで使われていた Helvetica Neue で通用していた経過時間の最大幅の決定方法が、
+iOS 9から新たにシステムフォントとなった San Francisco では通用しなくなったのが原因だ。</p>
+<p>Helvetica Neue はプロポーショナルフォントだが、数値だけは等幅だ。
+その為、例えば1:23:45の最大幅を決める為に、どの文字が一番大きいかなど考える必要がなく、
+単に1:23:45を最大幅と考えることが出来た。</p>
+<p>一方 San Francisco では、数値もプロポーショナルフォントとなっている。
+しかも、サイズと太さの組み合わせによって、0が一番大きかったり8が一番大きかったりする。</p>
+<p>その為、もし0が一番大きい場合、合計時間が 1:23:45 なら 00:00:00 の文字幅を取れば良い。</p>
+<p>そもそも San Francisco ほどに違わないとしても、数値がプロポーショナルフォントというのは
+全く珍しくない。デザイン重視のAppleが一般ユーザーの目に触れるフォントとして採用していた
+フォントが等幅だった方が変だったと思う。</p>
+<p>でも無印Helveticaでさえ1だけは幅が狭いので、あえて等幅が選ばれた理由は何かあるっぽい。</p>
+<h2>解決方法</h2>
+<ol>
+<li>
+<p>Helvetica Neueにする</p>
+<p>一番楽な解決方法。</p>
+<p>でも一般ユーザーの目に触れるものを等幅にしたくない。
+また、San Franciscoは時間を表す時に使う「:」の位置も前後の文字によって動的に変わったりと、表示の美しさにこだわってるのでなるべくそっちを使いたい。</p>
+<p>なので却下。</p>
+</li>
+<li>
+<p>San Franciscoの等幅モードを使う</p>
+<p><code>UIFont</code> には <code>+ monospacedDigitSystemFontOfSize:weight:</code> というメソッドがあり、San Francisco でも等幅になる。</p>
+<p>ただ、太さによっては<a href="https://forums.developer.apple.com/thread/19671">このメソッドが効かないとかいう話</a>があったりするし、
+IBの設定だけで有効には出来ないし、アルファベットまで等幅になるし、そもそも等幅は嫌だしで却下。</p>
+</li>
+<li>
+<p>一番幅広の文字をあらかじめ調べてハードコーディングしておく</p>
+<p>柔軟性は無いが、フォントサイズがあらかじめ分かっていて、そのフォントが動的に変わるわけでなければこれで十分。</p>
+<p>今回はこれにした。</p>
+</li>
+<li>
+<p>サイズと太さによって数値文字の幅を動的に決定する</p>
+<p><code>NSString</code>の<code>- sizeWithAttributes:</code>で一番幅広の文字を探しておき、それを使う。</p>
+<p>多少のコードが必要になるがフォントの変更に柔軟に対応できる。</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[実行中のシェル名の確認方法を考える]]></title>
+        <id>https://mshibanami.github.io/blog/current-shell-name</id>
+        <link href="https://mshibanami.github.io/blog/current-shell-name"/>
+        <updated>2016-02-02T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h2>まえがき</h2>
+<p>去年の12月、Facebookの<a href="https://github.com/facebook/infer">Infer</a>がHomebrewに追加されたことを知った。</p>
+<p><a href="https://github.com/Homebrew/homebrew/commits/master/Library/Formula/infer.rb">https://github.com/Homebrew/homebrew/commits/master/Library/Formula/infer.rb</a></p>
+<p>InferはOCamlで書かれているが、そのバージョン指定が厳しくてHomebrewになかなか出せないとかいう話があった。</p>
+<p>Facebookは最初、ビルド済みのバイナリを公開してくれていて、Homebrew-caskの方ではそれが使われていた。
+Homebrewでも同じくバイナリを使ったサポートをしようとしてたけど、バイナリがいつの間にか消されててできなくなっていた。</p>
+<p><a href="https://github.com/Homebrew/homebrew/pull/40597">https://github.com/Homebrew/homebrew/pull/40597</a></p>
+<p>その時自分は、じゃあ自分でビルドしようと思い、OCamlを入れてみた。</p>
+<p>opamの起動スクリプトは各シェル用のものがあった。
+何もしてないとインストール時にその読み込み設定がログインシェルの.*shrcに書かれる。
+自分の場合は.zshrcに以下が書かれた。</p>
+<div><pre><code class="language-sh"><span>.</span> /Users/ユーザー名/.opam/opam-init/init.zsh <span>></span> /dev/null <span><span>2</span>></span> /dev/null <span>||</span> <span>true</span>
+</code></pre></div>
+<p>また、<code>~/.opam/opam-init/</code>には他にも</p>
+<ul>
+<li>init.fish</li>
+<li>init.sh</li>
+<li>init.zsh</li>
+<li>init.csh</li>
+</ul>
+<p>があった。(bashはない。)
+各シェルの.*shrcにこれらを書いてもいいけど設定が分散するのは嫌だ。
+なので実行中のシェル名を見てこれらを分ける処理を共通の.shrcに書きたい。
+そこで現在実行中のシェル名が欲しくなった。</p>
+<h2>案1: <code>echo $0</code></h2>
+<ul>
+<li>実行中スクリプトのパス。</li>
+<li>シェル名が表示されるのはシェルと対話中の時だけ</li>
+<li>fish-shellやcsh、tcshでは$0は設定されてない</li>
+</ul>
+<h2>案2: <code>ps -p $$ -oargs= | sed -e 's:^.*/::g'</code></h2>
+<h3>内訳</h3>
+<ul>
+<li>
+<p>$$は現在のプロセス名</p>
+</li>
+<li>
+<p>sedで不要な出力を無文字に置換で削除</p>
+<p>sedでは普通、<code>s/パターン/置換文字/m</code>のようにスラッシュ区切りで使われるが、今回扱う文字にはパスが含まれる為<code>:</code>を使う。
+この場合は一番下の行の最初から一番最後のスラッシュまでを削除する。</p>
+</li>
+<li>
+<p>oargsはocommとすることも出来る</p>
+</li>
+</ul>
+<h3>問題点</h3>
+<ul>
+<li>$$はfish-shellでは使えない</li>
+<li>csh や tcsh ではプロセス名がそれぞれ <code>-sh</code> と <code>-csh</code> となり、先頭の文字が消されてしまう。
+ハイフンが付いてるだけならまだしも、全く別のシェルとして表示されるのは困る。おそらくバグ。
+<code>-</code>を<code>t</code>に置換すれば可能だがそういう場当たり的対処は後で修正された時が面倒。</li>
+</ul>
+<h2>案3: <code>ps -p %self -oargs= | sed -e 's:^.*/::g'</code></h2>
+<ul>
+<li><code>%self</code>はfish-shellでしか使えない</li>
+</ul>
+<h2>案4: <code>echo $SHELL | sed -e 's:^.*/::g'</code></h2>
+<ul>
+<li>cshやtcshでは使えない</li>
+<li>シェルのネストに対応できない</li>
+</ul>
+<h2>案5: <code>echo $shell</code></h2>
+<ul>
+<li>cshやtcsh以外では使えない</li>
+<li>cshでもtcshになる。OSXの/bin/cshは/bin/tcshを呼び出してるので当然だが。</li>
+</ul>
+<p>以上から、1つのコードでsh、bash、zsh、fish、csh、tcshシェルを判定したい。
+しかしcsh系とその他では以下if文とエラー出力の無視という点が他と異なるので無理と判断。
+cshとtcshは諦めた。sh、bash、zshでこんな感じにして妥協しようか。</p>
+<div><pre><code class="language-bash"><span>shellName</span><span>=</span><span><span>$(</span><span>ps</span> <span>-p</span> $$ <span>-oargs</span><span>=</span> <span><span>2</span>></span> /dev/null<span>)</span></span>
+<span>if</span> <span>[</span> <span>-z</span> <span>"<span>$shellName</span>"</span> <span>]</span><span>;</span> <span>then</span><span>;</span>
+  <span>shellName</span><span>=</span><span><span>$(</span><span>ps</span> <span>-p</span> %self <span>-oargs</span><span>=</span><span>)</span></span> <span>#fish-shell用</span>
+<span>fi</span>
+<span>shellName</span><span>=</span><span><span>$(</span><span>echo</span> $shellName <span>|</span> <span>sed</span> <span>-e</span> <span>'s:^.*/::g'</span><span>)</span></span>
+
+<span>echo</span> <span>"シェル名: <span>$shellName</span>"</span>
+</code></pre></div>
+<p>なんか小汚いしどうでも良くなってきた。今は<code>.*shrc</code>へそれぞれ書いてる。でも何か方法は無いだろうか。</p>
+<p>参考:</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on">http://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on</a></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[iOS and MPEG-DASH]]></title>
+        <id>https://mshibanami.github.io/blog/ios-and-mpeg-dash</id>
+        <link href="https://mshibanami.github.io/blog/ios-and-mpeg-dash"/>
+        <updated>2015-11-01T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>The other day, I created a YouTube app for iOS.
+And I tried to get my app to play 1080p videos from YouTube.
+But it was not easy.</p>
+<p>YouTube does not provide 1080p or higher resolution videos in the HLS format.
+Currently, They only provide it in the MPEG-DASH format.
+But iOS does not support MPEG-DASH, only HLS.</p>
+<p>I tried to find a third party library. But I couldn't find any good ones.</p>
+<p>So I sent a feature request to enable support from MPEG-DASH to Apple a year ago.
+And finally, I got the answer from them yesterday.</p>
+<div><pre><code class="language-none">Hi Manabu,
+This is a courtesy email regarding Bug ID# 19279150.
+Engineering has the following feedback for you:
+We checked with YouTube and this was their response:
+“If the content is available in 1080p in DASH, it should be available in 1080p in HLS, both in the YouTube native app, and also via the HLS experiment Safari”
+So, this is something we have no plans to address as the entire YouTube DASH-encoded catalog is also available on iOS.
+We are now closing this bug report.</code></pre></div>
+<p>But actually, It looks like 1080p videos in the HLS are not available.</p>
+<p>It probably means YouTube is preparing for 1080p HLS videos now.
+I hope that day will soon come.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[テスト投稿]]></title>
+        <id>https://mshibanami.github.io/blog/first-post</id>
+        <link href="https://mshibanami.github.io/blog/first-post"/>
+        <updated>2015-10-26T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>テスト投稿 - 本文</p>
+<h3>Scala</h3>
+<div><pre><code class="language-scala"><span>def</span> hasA<span>(</span>s<span>:</span><span>String</span><span>)</span><span>:</span><span>Boolean</span> <span>=</span> <span>{</span>
+  <span>for</span><span>(</span>i <span>&#x3C;-</span> <span>0</span> until s<span>.</span>length<span>)</span> <span>{</span>
+    <span>if</span><span>(</span>s<span>(</span>i<span>)</span> <span>==</span> <span>'a'</span><span>)</span> <span>return</span> <span>true</span>
+  <span>}</span>
+  <span>return</span> <span>false</span>
+<span>}</span>
+</code></pre></div>
+]]></content>
+    </entry>
+</feed>
