@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Manabu Nakazawa</title>
+  <subtitle>Manabu Nakazawa&apos;s personal webpage</subtitle>
+  <link href="https://biwatta.com" />
+  <link href="https://biwatta.com/updates.atom" rel="self" type="application/atom+xml" />
+  <id>https://biwatta.com</id>
+  <updated>2026-05-09T00:00:00.000Z</updated>
+  <author>
+    <name>Manabu Nakazawa</name>
+    <email>mshibanami+website@gmail.com</email>
+  </author>
+  <rights>© Manabu Nakazawa</rights>
+  <entry>
+    <title>Safari still runs extension code on denied websites</title>
+    <link href="https://biwatta.com/blog/safari-denied-extension-issue" />
+    <id>https://biwatta.com/blog/safari-denied-extension-issue</id>
+    <updated>2026-05-09T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>Unrush</title>
+    <link href="https://unrush.org/" />
+    <id>https://biwatta.com/projects/unrush</id>
+    <updated>2025-12-24T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>WebP for Quick Look</title>
+    <link href="https://mshibanami.github.io/webp-for-quicklook" />
+    <id>https://biwatta.com/projects/webp-for-quicklook</id>
+    <updated>2025-12-03T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>RedirectWeb</title>
+    <link href="https://redirectweb.net/" />
+    <id>https://biwatta.com/projects/redirect-web-for-safari</id>
+    <updated>2021-08-04T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>Translate Web for Safari</title>
+    <link href="https://biwatta.com/projects/translate-web-for-safari" />
+    <id>https://biwatta.com/projects/translate-web-for-safari</id>
+    <updated>2020-05-31T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>&quot;subscriptions:insert&quot; returns an error</title>
+    <link href="https://biwatta.com/blog/subscriptions-insert-error" />
+    <id>https://biwatta.com/blog/subscriptions-insert-error</id>
+    <updated>2018-08-23T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>Gradle Wrapperを経由せずに実行する</title>
+    <link href="https://biwatta.com/blog/gradle-wrapper" />
+    <id>https://biwatta.com/blog/gradle-wrapper</id>
+    <updated>2016-02-07T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>言語別の数値単位表</title>
+    <link href="https://biwatta.com/blog/unit-prefixes-by-languages" />
+    <id>https://biwatta.com/blog/unit-prefixes-by-languages</id>
+    <updated>2016-02-07T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>Helvetica Neueは数値が等幅</title>
+    <link href="https://biwatta.com/blog/helvetica-neue" />
+    <id>https://biwatta.com/blog/helvetica-neue</id>
+    <updated>2016-02-03T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>実行中のシェル名の確認方法を考える</title>
+    <link href="https://biwatta.com/blog/current-shell-name" />
+    <id>https://biwatta.com/blog/current-shell-name</id>
+    <updated>2016-02-02T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>iOS and MPEG-DASH</title>
+    <link href="https://biwatta.com/blog/ios-and-mpeg-dash" />
+    <id>https://biwatta.com/blog/ios-and-mpeg-dash</id>
+    <updated>2015-11-01T00:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <title>テスト投稿</title>
+    <link href="https://biwatta.com/blog/first-post" />
+    <id>https://biwatta.com/blog/first-post</id>
+    <updated>2015-10-26T00:00:00.000Z</updated>
+  </entry>
+</feed>

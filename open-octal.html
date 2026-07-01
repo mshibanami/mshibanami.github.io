@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f8f9fa;
+        color: #333;
+        text-align: center;
+      }
+      .message {
+        padding: 20px;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="message">
+      <p>Opening Octal...</p>
+      <p>
+        If you are not redirected automatically,
+        <a href="octal://item?id=315142">click here</a>.
+      </p>
+    </div>
+
+    <script>
+      const targetUrl = "octal://item?id=315142";
+      window.location.replace(targetUrl);
+    </script>
+  </body>
+</html>

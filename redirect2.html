@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Redirecting…</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font:
+          16px/1.5 system-ui,
+          -apple-system,
+          sans-serif;
+        color: #1d1d1f;
+        background-color: #ffffff;
+        padding: 24px;
+      }
+      h1 {
+        font-size: 1.25em;
+        font-weight: 600;
+      }
+      p {
+        color: #6e6e73;
+      }
+      a {
+        color: #0071e3;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #f5f5f7;
+          background-color: #1d1d1f;
+        }
+        p {
+          color: #a1a1a6;
+        }
+        a {
+          color: #2997ff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var hash = window.location.hash;
+      var url = hash ? hash.substring(1) : null;
+
+      if (url) {
+        document.title = "Redirecting to " + url + "…";
+
+        var p = document.createElement("p");
+        p.textContent = "Redirecting to ";
+
+        var a = document.createElement("a");
+        a.href = url;
+        a.textContent = url;
+        p.appendChild(a);
+        p.appendChild(document.createTextNode("…"));
+
+        document.body.appendChild(p);
+        window.location.replace(url);
+
+        // fallback
+        setTimeout(() => {
+          window.location.href = url;
+        }, 500);
+      } else {
+        document.title = "No URL specified";
+
+        var h1 = document.createElement("h1");
+        h1.textContent = "No URL specified";
+        document.body.appendChild(h1);
+      }
+    </script>
+  </body>
+</html>
