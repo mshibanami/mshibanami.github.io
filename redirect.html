@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var url = new URL(window.location.href).searchParams.get("url");
+
+        if (url) {
+          document.title = "Redirecting to " + url + "…";
+
+          var p = document.createElement("p");
+          p.textContent = "Redirecting to ";
+
+          var a = document.createElement("a");
+          a.href = url;
+          a.textContent = url;
+          p.appendChild(a);
+          p.appendChild(document.createTextNode("…"));
+
+          document.body.appendChild(p);
+          window.location.replace(url);
+
+          // fallback
+          setTimeout(() => {
+            window.location.href = url;
+          }, 500);
+        } else {
+          document.title = "No URL specified";
+
+          var h1 = document.createElement("h1");
+          h1.textContent = "No URL specified";
+          document.body.appendChild(h1);
+
+          var p = document.createElement("p");
+          p.textContent = 'A "url" query parameter is required.';
+          document.body.appendChild(p);
+
+          var h2 = document.createElement("h2");
+          h2.textContent = "Usage";
+          document.body.appendChild(h2);
+
+          var pre = document.createElement("pre");
+          pre.textContent =
+            window.location.origin +
+            window.location.pathname +
+            "?url=https%3A%2F%2Fexample.com%2F";
+          document.body.appendChild(pre);
+        }
+      })();
+    </script>
+  </body>
+</html>
